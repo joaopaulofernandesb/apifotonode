@@ -2,13 +2,28 @@ var express = require("express");
 var router = express.Router();
 var multer = require("multer");
 var moment = require("moment");
+var fs = require("fs");
 const { insertdados } = require("../db/insert");
 const { consultaComprovante } = require("../db/consulta");
 moment.locale("pt-br");
 const { converteImgText } = require("../worker/teste");
+const fs = require("fs");
+const dir = "public";
+const dir2 = "public/images";
+
+//Verifica se não existe
+if (!fs.existsSync(dir)) {
+  //Efetua a criação do diretório
+  fs.mkdirSync(dir);
+} else if (!fs.existsSync(dir2)) {
+  fs.mkdirSync(dir2);
+} else {
+  console.log("Existe!!");
+}
+
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "../public/images");
+    cb(null, "./public/images");
   },
   filename: (req, file, cb) => {
     console.log(file);
