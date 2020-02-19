@@ -56,7 +56,7 @@ router.post("/upload", upload.single("file"), async function(req, res, next) {
   }
 
   await insertdados(req.file);
-  converteImgText("https://a688f795.ngrok.io/images/" + req.file.filename);
+  // converteImgText("https://a688f795.ngrok.io/images/" + req.file.filename);
 
   res.json(req.file.filename);
 });
