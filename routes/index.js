@@ -8,7 +8,7 @@ moment.locale("pt-br");
 const { converteImgText } = require("../worker/teste");
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, __dirname, "./public/images");
+    cb(null, "../public/images");
   },
   filename: (req, file, cb) => {
     console.log(file);
