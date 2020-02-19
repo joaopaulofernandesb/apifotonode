@@ -7,7 +7,7 @@ const { insertdados } = require("../db/insert");
 const { consultaComprovante } = require("../db/consulta");
 moment.locale("pt-br");
 const { converteImgText } = require("../worker/teste");
-const fs = require("fs");
+var fs = require("fs");
 const dir = "public";
 const dir2 = "public/images";
 
