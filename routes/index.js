@@ -7,9 +7,9 @@ const { consultaComprovante } = require("../db/consulta");
 moment.locale("pt-br");
 const { converteImgText } = require("../worker/teste");
 var storage = multer.diskStorage({
-  // destination: (req, file, cb) => {
-  //   cb(null, "./public/images");
-  // },
+  destination: (req, file, cb) => {
+    cb(__dirname, "./public/images");
+  },
   filename: (req, file, cb) => {
     console.log(file);
     var filetype = "";
